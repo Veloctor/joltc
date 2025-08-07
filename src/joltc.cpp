@@ -3185,6 +3185,7 @@ JPH_BodyCreationSettings* JPH_BodyCreationSettings_Create2(
 		AsShapeSettings(shapeSettings),
 		ToJolt(position),
 		rotation != nullptr ? ToJolt(rotation) : JPH::Quat::sIdentity(),
+		JPH::EMotionType(motionType),
 		objectLayer
 	);
 	return ToBodyCreationSettings(bodyCreationSettings);
@@ -6942,15 +6943,21 @@ void JPH_Body_SetRestitution(JPH_Body* body, float restitution)
 	reinterpret_cast<JPH::Body*>(body)->SetRestitution(restitution);
 }
 
+<<<<<<< Updated upstream
 void JPH_Body_GetLinearVelocity(JPH_Body* body, JPH_Vec3* velocity)
+=======
 void JPH_Body_GetLinearVelocity(JPH_Body* body, JPH_RVec3* velocity)
+>>>>>>> Stashed changes
 {
 	auto joltVector = reinterpret_cast<JPH::Body*>(body)->GetLinearVelocity();
 	FromJolt(joltVector, velocity);
 }
 
+<<<<<<< Updated upstream
 void JPH_Body_SetLinearVelocity(JPH_Body* body, const JPH_Vec3* velocity)
+=======
 void JPH_Body_SetLinearVelocity(JPH_Body* body, const JPH_RVec3* velocity)
+>>>>>>> Stashed changes
 {
 	reinterpret_cast<JPH::Body*>(body)->SetLinearVelocity(ToJolt(velocity));
 }
